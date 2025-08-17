@@ -1,5 +1,6 @@
 package com.spring.boot.springbootjparelations1.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
@@ -28,4 +29,9 @@ public class Address {
     @Column(columnDefinition = "varchar(30) not null")
     private String buildingNumber;
 
+    @OneToOne
+    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
+    @MapsId
+    @JsonIgnore
+    private Teacher teacher;
 }
