@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "5a6f4506-5b2a-4f4e-8c6a-940da0153bd9",
+		"name": "School management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46809246",
+		"_collection_link": "https://abdullahalwael.postman.co/workspace/Abdullah-Alwael's-Workspace~0afd19ff-4de9-4144-8b90-6b699a18a04f/collection/46809246-5a6f4506-5b2a-4f4e-8c6a-940da0153bd9?action=share&source=collection_link&creator=46809246"
+	},
+	"item": [
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "get teacher details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/teacher/details/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teacher",
+								"details",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": []
+		}
+	]
+}

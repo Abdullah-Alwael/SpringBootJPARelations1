@@ -58,6 +58,8 @@ public class AddressService {
             throw new ApiException("Error, address not found");
         }
 
+        oldAddress.getTeacher().setAddress(null);
+
         addressRepository.delete(oldAddress);
     }
 }

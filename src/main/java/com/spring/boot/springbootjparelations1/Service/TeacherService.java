@@ -51,6 +51,12 @@ public class TeacherService {
     }
 
     public Teacher getTeacherDetails(Integer teacherId){
-        return getTeacher(teacherId);
+        Teacher teacher = getTeacher(teacherId);
+
+        if (teacher == null){
+            throw new ApiException("Error, teacher not found");
+        }
+
+        return teacher;
     }
 }
