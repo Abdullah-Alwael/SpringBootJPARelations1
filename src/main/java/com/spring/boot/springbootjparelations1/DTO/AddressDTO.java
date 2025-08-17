@@ -1,20 +1,19 @@
-package com.spring.boot.springbootjparelations1.Model;
+package com.spring.boot.springbootjparelations1.DTO;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
 @AllArgsConstructor
-@NoArgsConstructor
-@Entity
-public class Address {
+public class AddressDTO {
 
-    @Id
-    private Integer id;
+    @NotNull(message = "teacherId should not be null")
+    private Integer teacherId;
 
     @NotEmpty(message = "name can not be empty")
     @Column(columnDefinition = "varchar(30) not null")
@@ -28,8 +27,4 @@ public class Address {
     @Column(columnDefinition = "varchar(30) not null")
     private String buildingNumber;
 
-    @OneToOne
-    @MapsId
-    @JsonIgnore
-    private Teacher teacher;
 }

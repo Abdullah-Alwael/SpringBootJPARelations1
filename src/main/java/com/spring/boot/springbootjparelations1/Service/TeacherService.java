@@ -1,5 +1,6 @@
 package com.spring.boot.springbootjparelations1.Service;
 
+import com.spring.boot.springbootjparelations1.Api.ApiException;
 import com.spring.boot.springbootjparelations1.Model.Teacher;
 import com.spring.boot.springbootjparelations1.Repository.TeacherRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,11 +13,40 @@ import java.util.List;
 public class TeacherService {
     private final TeacherRepository teacherRepository;
 
-    public List<Teacher> getAllTeachers(){
+    public void addTeacher(Teacher teacher){
+        teacherRepository.save(teacher);
+    }
+
+    public List<Teacher> getTeachers(){
         return teacherRepository.findAll();
     }
 
-    public void addNewTeacher(Teacher teacher){
-        teacherRepository.save(teacher);
+    public Teacher getTeacher(Integer teacherId){
+        return teacherRepository.findTeacherById(teacherId);
+    }
+
+    public void updateTeacher(Integer teacherId, Teacher teacher){
+        Teacher oldTeacher = teacherRepository.findTeacherById(teacherId);
+
+        if (oldTeacher == null){
+            throw new ApiException("Error, teacher not found");
+        }
+
+        oldTeacher.setName(teacher.getName());
+        oldTeacher.setAge(teacher.getAge());
+        oldTeacher.setEmail(teacher.getEmail());
+        oldTeacher.setSalary(teacher.getSalary());
+
+        teacherRepository.save(oldTeacher);
+    }
+
+    public void deleteTeacher(Integer teacherId){
+        Teacher oldTeacher = teacherRepository.findTeacherById(teacherId);
+
+        if (oldTeacher == null){
+            throw new ApiException("Error, teacher not found");
+        }
+
+        teacherRepository.delete(oldTeacher);
     }
 }
