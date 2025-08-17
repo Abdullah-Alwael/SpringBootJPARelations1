@@ -49,4 +49,8 @@ public class TeacherService {
 
         teacherRepository.delete(oldTeacher);
     }
+
+    public Teacher getTeacherDetails(Integer teacherId){
+        return getTeacher(teacherId);
+    }
 }

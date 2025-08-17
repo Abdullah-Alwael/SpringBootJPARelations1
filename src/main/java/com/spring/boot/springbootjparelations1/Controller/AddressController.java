@@ -28,9 +28,9 @@ public class AddressController {
 
     }
 
-    @PutMapping("/update/{addressId}")
-    public ResponseEntity<?> updateAddress(@PathVariable Integer addressId, @Valid @RequestBody Address address){
-        addressService.updateAddress(addressId, address);
+    @PutMapping("/update")
+    public ResponseEntity<?> updateAddress(@Valid @RequestBody AddressDTO addressDTO){
+        addressService.updateAddress(addressDTO);
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse("Address updated successfully"));
 
     }

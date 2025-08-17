@@ -40,4 +40,11 @@ public class TeacherController {
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse("Teacher deleted successfully"));
 
     }
+
+    @GetMapping("/details/{teacherId}")
+    public ResponseEntity<?> getTeacherDetails(@PathVariable Integer teacherId){
+        return ResponseEntity.status(HttpStatus.OK).body(
+                teacherService.getTeacherDetails(teacherId));
+
+    }
 }
